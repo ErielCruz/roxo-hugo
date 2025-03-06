@@ -6,9 +6,11 @@
     margin-bottom: 30px;
     transition: all 0.3s ease-in;
     &-thumb{
-      img{
+      img {
         width: 100%;
-      }
+        aspect-ratio: 1/1;
+        object-fit: cover; /* Optional: to control how the image fills the square */
+      }      
     }
     &-content{
       position: absolute;
@@ -189,11 +191,27 @@
       margin-bottom: 30px;
       img{
         width: 48%;
+        aspect-ratio: 1/1; /* Makes the image a square */
+        object-fit: cover; /* Crops the image to cover the square area */
+        height: auto; /* Reset height to auto to allow aspect-ratio to control it */
         &:nth-child(2n){
           margin-left: auto;
         }
         @include tablet{
           width: 100%;
+        }
+      }
+    }
+    &-video{
+      // ... other &-video styles if you have them ...
+  
+      .site-project-single-video-list {
+        .site-project-single-video-item {
+          iframe {
+            width: 100%;
+            height: 415px; /* Explicitly set height to auto to override */
+            display: block;
+          }
         }
       }
     }
